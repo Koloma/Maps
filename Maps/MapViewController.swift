@@ -36,6 +36,7 @@ class MapViewController: UIViewController {
 
         setCustomMapStyle()
 
+        mapView.delegate = self
     }
 
     private func setCustomMapStyle(){
@@ -53,5 +54,18 @@ class MapViewController: UIViewController {
         marker.snippet = "Text description for marker"
         marker.map = mapView
     }
+}
 
+// MARK: GMSMapViewDelegate
+extension MapViewController: GMSMapViewDelegate{
+
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+        addMarker(at: coordinate)
+    }
+
+    func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
+        let camera = GMSCameraPosition.camera(withTarget: coordinateMoscovCenter, zoom: 12)
+        mapView.animate(to: camera)
+        return true
+    }
 }
