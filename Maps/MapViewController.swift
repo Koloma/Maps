@@ -25,6 +25,8 @@ class MapViewController: UIViewController {
 
         setupMap()
         setupLocationManager()
+        goToAdress("Norilsk")
+
     }
 
     @IBAction func tapAddMarketButton(_ sender: UIBarButtonItem) {
@@ -41,8 +43,20 @@ class MapViewController: UIViewController {
         }
     }
 
+    private func goToAdress(_ adress: String){
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(adress) { [weak self] plecamarks, error in
+            print(error?.localizedDescription ?? "Error is null")
+            guard let placemark = plecamarks?.first,
+            let coordinate = placemark.location?.coordinate else { return }
+            let camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: self?.defaultZoom ?? 17.0)
+            self?.mapView.camera = camera
+        }
+    }
+
     private func setupLocationManager(){
         locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = 10.0
         locationManager.delegate = self;
     }
 
