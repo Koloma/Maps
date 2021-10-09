@@ -25,22 +25,29 @@ class MapViewController: UIViewController {
 
         setupMap()
         setupLocationManager()
-        goToAdress("Norilsk")
-
     }
 
     @IBAction func tapAddMarketButton(_ sender: UIBarButtonItem) {
-        addMarker(at: coordinateMoscovCenter)
+        guard let coordinate = locationManager.location?.coordinate
+        else { return }
+
+        addMarker(at: coordinate)
     }
 
     @IBAction func actionTrackLocation(_ sender: UIBarButtonItem) {
         if trackLocation{
+            sender.title = "Track location"
             locationManager.stopUpdatingLocation()
             trackLocation = false
         } else{
+            sender.title = "Storp tracking"
             locationManager.startUpdatingLocation()
             trackLocation = true
         }
+    }
+
+    @IBAction func actionGoToNorilsk(_ sender: UIBarButtonItem) {
+        goToAdress("Norilsk")
     }
 
     private func goToAdress(_ adress: String){
@@ -49,7 +56,7 @@ class MapViewController: UIViewController {
             print(error?.localizedDescription ?? "Error is null")
             guard let placemark = plecamarks?.first,
             let coordinate = placemark.location?.coordinate else { return }
-            let camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: self?.defaultZoom ?? 17.0)
+            let camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: 12.0)
             self?.mapView.camera = camera
         }
     }
@@ -82,11 +89,11 @@ class MapViewController: UIViewController {
         mapView.mapStyle = mapStyle
     }
 
-    private func addMarker(at coordinate: CLLocationCoordinate2D){
+    private func addMarker(at coordinate: CLLocationCoordinate2D, title: String = "", snippet: String = ""){
         let marker = GMSMarker.init(position: coordinate)
         marker.icon = GMSMarker.markerImage(with: .clear)
-        marker.title = "Titel fo marker"
-        marker.snippet = "Text description for marker"
+        marker.title = title
+        marker.snippet = snippet
         marker.map = mapView
     }
 }
@@ -99,7 +106,10 @@ extension MapViewController: GMSMapViewDelegate{
     }
 
     func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
-        let camera = GMSCameraPosition.camera(withTarget: coordinateMoscovCenter, zoom: defaultZoom)
+        guard let coordinate = locationManager.location?.coordinate
+        else { return false }
+
+        let camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: defaultZoom)
         mapView.animate(to: camera)
         return true
     }
