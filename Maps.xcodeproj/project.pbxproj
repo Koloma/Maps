@@ -106,6 +106,7 @@
 				20E80A67270DCF9C002ACBBD /* Frameworks */,
 				20E80A68270DCF9C002ACBBD /* Resources */,
 				6944C668FA3B94F21BEF7141 /* [CP] Copy Pods Resources */,
+				E26CB61D66AF2E0C82AD954F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -201,6 +202,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E26CB61D66AF2E0C82AD954F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Maps/Pods-Maps-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Maps/Pods-Maps-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Maps/Pods-Maps-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -366,6 +384,7 @@
 				DEVELOPMENT_TEAM = ZMX77LFT7B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Maps/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To watch you locations";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -395,6 +414,7 @@
 				DEVELOPMENT_TEAM = ZMX77LFT7B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Maps/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To watch you locations";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

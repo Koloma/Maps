@@ -19,6 +19,8 @@ class MapViewController: UIViewController {
 
     private var trackLocation = false
 
+    private var route: GMSPolyline?
+    private var path: GMSMutablePath?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +45,7 @@ class MapViewController: UIViewController {
             sender.title = "Storp tracking"
             locationManager.startUpdatingLocation()
             trackLocation = true
+            startNewTrack()
         }
     }
 
@@ -62,8 +65,12 @@ class MapViewController: UIViewController {
     }
 
     private func setupLocationManager(){
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.desiredAccuracy = 10.0
+        //locationManager.requestWhenInUseAuthorization()
+        locationManager.requestAlwaysAuthorization()
+        locationManager.desiredAccuracy = 100.0
+        locationManager.allowsBackgroundLocationUpdates = true
+        locationManager.pausesLocationUpdatesAutomatically = false
+        //locationManager.startMonitoringSignificantLocationChanges()
         locationManager.delegate = self;
     }
 
@@ -96,6 +103,22 @@ class MapViewController: UIViewController {
         marker.snippet = snippet
         marker.map = mapView
     }
+
+    private func startNewTrack(){
+        route?.map = mapView
+        route = GMSPolyline()
+
+        route?.strokeColor = .white
+        route?.strokeWidth = 3
+
+        path = GMSMutablePath()
+        route?.map = mapView
+    }
+
+    private func addPointToTrack(at coordinate: CLLocationCoordinate2D){
+        path?.add(coordinate)
+        route?.path = path
+    }
 }
 
 // MARK: GMSMapViewDelegate
@@ -126,7 +149,8 @@ extension MapViewController: CLLocationManagerDelegate{
         guard
             let location = locations.last
         else { return }
-        addMarker(at: location.coordinate)
+        //addMarker(at: location.coordinate)
+        addPointToTrack(at: location.coordinate)
         let camera = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: defaultZoom)
         mapView.camera = camera
     }
