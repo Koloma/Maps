@@ -12,8 +12,8 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: GMSMapView!
 
-    //Moscov center
-    private let coordinateMoscovCenter = CLLocationCoordinate2D(latitude: 55.753215, longitude: 37.622504)
+    //Defaul map position (Moscow center)
+    private let defaultCoordinate = CLLocationCoordinate2D(latitude: 55.753215, longitude: 37.622504)
     private let locationManager = CLLocationManager()
     private let defaultZoom: Float = 17.0
 
@@ -75,9 +75,7 @@ class MapViewController: UIViewController {
     }
 
     private func setupMap() {
-        //Moscov center
-        //let coordinate = CLLocationCoordinate2D(latitude: 55.753215, longitude: 37.622504)
-        let camera = GMSCameraPosition.camera(withTarget: coordinateMoscovCenter, zoom: defaultZoom)
+        let camera = GMSCameraPosition.camera(withTarget: defaultCoordinate, zoom: defaultZoom)
         mapView.camera = camera
 
         mapView.settings.compassButton = true
@@ -118,6 +116,7 @@ class MapViewController: UIViewController {
     private func addPointToTrack(at coordinate: CLLocationCoordinate2D){
         path?.add(coordinate)
         route?.path = path
+        //Save dateTime with coordinate to Reals
     }
 }
 
@@ -149,7 +148,7 @@ extension MapViewController: CLLocationManagerDelegate{
         guard
             let location = locations.last
         else { return }
-        //addMarker(at: location.coordinate)
+        //print("Did update locations \(location.coordinate)")
         addPointToTrack(at: location.coordinate)
         let camera = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: defaultZoom)
         mapView.camera = camera
