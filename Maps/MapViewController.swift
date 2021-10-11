@@ -22,11 +22,17 @@ class MapViewController: UIViewController {
     private var route: GMSPolyline?
     private var path: GMSMutablePath?
 
+    private var dataBase: DataBaseLocationProtocol?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        dataBase = RealDataBase()
+
         setupMap()
         setupLocationManager()
+
+
     }
 
     @IBAction func tapAddMarketButton(_ sender: UIBarButtonItem) {
@@ -116,6 +122,8 @@ class MapViewController: UIViewController {
     private func addPointToTrack(at coordinate: CLLocationCoordinate2D){
         path?.add(coordinate)
         route?.path = path
+
+        dataBase?.addPontToPath(coordinate: coordinate)
         //Save dateTime with coordinate to Reals
     }
 }
