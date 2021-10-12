@@ -11,6 +11,7 @@ import GoogleMaps
 class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var buttonLocationStartStop: UIBarButtonItem!
 
     //Defaul map position (Moscow center)
     private let defaultCoordinate = CLLocationCoordinate2D(latitude: 55.753215, longitude: 37.622504)
@@ -22,16 +23,13 @@ class MapViewController: UIViewController {
     private var route: GMSPolyline?
     private var path: GMSMutablePath?
 
-    private var dataBase: DataBaseLocationProtocol?
+    private var dataBase: DataBaseLocationProtocol = RealDataBase()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        dataBase = RealDataBase()
-
         setupMap()
         setupLocationManager()
-
 
     }
 
@@ -44,13 +42,10 @@ class MapViewController: UIViewController {
 
     @IBAction func actionTrackLocation(_ sender: UIBarButtonItem) {
         if trackLocation{
-            sender.title = "Track location"
-            locationManager.stopUpdatingLocation()
-            trackLocation = false
+            stopLocation()
+            finishTrack()
         } else{
-            sender.title = "Storp tracking"
-            locationManager.startUpdatingLocation()
-            trackLocation = true
+            startLocation()
             startNewTrack()
         }
     }
@@ -59,10 +54,41 @@ class MapViewController: UIViewController {
         goToAdress("Norilsk")
     }
 
+    @IBAction func actionShowPrevTrack(_ sender: UIButton) {
+        if !trackLocation{
+            showPreviuosPath()
+        }else{
+            showOkCancel()
+        }
+    }
+
+    private func stopLocation(){
+        buttonLocationStartStop.title = "Start tracking"
+        locationManager.stopUpdatingLocation()
+        trackLocation = false
+    }
+
+    private func startLocation(){
+        buttonLocationStartStop.title = "Storp tracking"
+        locationManager.startUpdatingLocation()
+        trackLocation = true
+    }
+
+    private func showPreviuosPath(){
+        let prePath =  dataBase.loadPath(name: dataBase.defaultPathName)
+        startNewTrack()
+        for coord in prePath{
+            addPointToTrack(at: coord)
+        }
+
+        guard let path = path else { return }
+        let bounds = GMSCoordinateBounds(path: path)
+        mapView.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 50.0))
+    }
+
     private func goToAdress(_ adress: String){
         let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(adress) { [weak self] plecamarks, error in
-            print(error?.localizedDescription ?? "Error is null")
+        geocoder.geocodeAddressString(adress) { [weak self] plecamarks, _ in
             guard let placemark = plecamarks?.first,
             let coordinate = placemark.location?.coordinate else { return }
             let camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: 12.0)
@@ -109,6 +135,9 @@ class MapViewController: UIViewController {
     }
 
     private func startNewTrack(){
+
+        mapView.clear()
+
         route?.map = mapView
         route = GMSPolyline()
 
@@ -119,12 +148,21 @@ class MapViewController: UIViewController {
         route?.map = mapView
     }
 
+    private func finishTrack(){
+
+        dataBase.deletePath(name: dataBase.defaultPathName)
+
+        guard let routePath = route?.path else { return }
+        for i in 0..<routePath.count() {
+            let coordinate = routePath.coordinate(at: i)
+            dataBase.addPoint(path: dataBase.defaultPathName, coordinate: coordinate)
+        }
+        print("Save path to DataBase complet")
+    }
+
     private func addPointToTrack(at coordinate: CLLocationCoordinate2D){
         path?.add(coordinate)
         route?.path = path
-
-        dataBase?.addPontToPath(coordinate: coordinate)
-        //Save dateTime with coordinate to Reals
     }
 }
 
@@ -156,9 +194,31 @@ extension MapViewController: CLLocationManagerDelegate{
         guard
             let location = locations.last
         else { return }
-        //print("Did update locations \(location.coordinate)")
-        addPointToTrack(at: location.coordinate)
-        let camera = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: defaultZoom)
-        mapView.camera = camera
+
+        if trackLocation{
+            addPointToTrack(at: location.coordinate)
+            let camera = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: defaultZoom)
+            mapView.camera = camera
+        }
     }
+}
+
+extension MapViewController{
+
+    func showOkCancel(){
+
+        let refreshAlert = UIAlertController(title: "Alert", message: "To show old track yuo must stop tracking. Stop tracking ?", preferredStyle: UIAlertController.Style.alert)
+
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [weak self] (action: UIAlertAction!) in
+            self?.stopLocation()
+            self?.showPreviuosPath()
+        }))
+
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+              print("Handle Cancel")
+        }))
+
+        present(refreshAlert, animated: true, completion: nil)
+    }
+
 }

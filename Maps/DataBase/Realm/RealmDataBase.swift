@@ -9,7 +9,9 @@ import Foundation
 import RealmSwift
 import CoreLocation
 
-final public class RealDataBase: DataBaseLocationProtocol{
+final public class RealDataBase: DataBaseLocationProtocol {
+
+    let defaultPathName: String = "default"
 
     private var realm: Realm {
         get {
@@ -18,7 +20,7 @@ final public class RealDataBase: DataBaseLocationProtocol{
                 return realm
             }
             catch let error as NSError{
-                print("Could not access Realm database: ",error.localizedDescription)
+                print("Could not access Realm database: ", error.localizedDescription)
             }
             return self.realm
         }
@@ -30,32 +32,45 @@ final public class RealDataBase: DataBaseLocationProtocol{
                 writeClosure()
             }
         } catch let error as NSError {
-            print("Could not write to Realm database: ",error.localizedDescription)
-
+            print("Could not write to Realm database: ", error.localizedDescription)
         }
     }
 
-    func readPathLocation() -> [CLLocationCoordinate2D] {
-        guard let locationPath = realm.objects(Location.self).first else { return [] }
-        return [locationPath.coordinate]
+    func deletePath(name: String) {
+        do {
+
+            let objects = realm.objects(Location.self)
+
+            try realm.write {
+                realm.delete(objects)
+            }
+        } catch let error as NSError {
+            print("Could not delete object from Realm database: ", error.localizedDescription)
+        }
     }
 
-    func addPontToPath(coordinate: CLLocationCoordinate2D) {
+    func savePath(name: String, path: [CLLocationCoordinate2D]) {
 
+        for location in path {
+            self.addPoint(path: name, coordinate: location)
+        }
+    }
 
+    func loadPath(name: String) -> [CLLocationCoordinate2D] {
+        let locationPath = realm.objects(Location.self)
+        var arr:[CLLocationCoordinate2D] = []
+        for loc in locationPath {
+            arr.append(loc.coordinate)
+        }
+        return arr
+    }
+
+    func addPoint(path name: String,  coordinate: CLLocationCoordinate2D) {
 
         let realmLocation = Location(coordinate: coordinate)
         write {
             realm.add(realmLocation)
         }
-//        do {
-//            try realm.write({
-//                realm.add(realmLocation)
-//            })
-//
-//        } catch let error as NSError{
-//            print("Could not write to Realm database: ",error.localizedDescription)
-//        }
 
     }
 

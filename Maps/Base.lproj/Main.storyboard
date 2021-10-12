@@ -17,23 +17,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uwN-Fx-shi" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="830"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="119" translatesAutoresizingMaskIntoConstraints="NO" id="LMY-7X-BLD">
-                                <rect key="frame" x="20" y="840" width="374" height="36"/>
+                                <rect key="frame" x="20" y="810" width="374" height="36"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVK-Wb-roM">
-                                        <rect key="frame" x="0.0" y="0.0" width="89" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="New track"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gi1-rk-QPI">
-                                        <rect key="frame" x="273" y="0.0" width="101" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Finish track"/>
+                                        <state key="normal" title="Show previous track"/>
+                                        <connections>
+                                            <action selector="actionShowPrevTrack:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0nc-VS-d0j"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -41,17 +38,17 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="LMY-7X-BLD" firstAttribute="top" secondItem="uwN-Fx-shi" secondAttribute="bottom" constant="10" id="9Hm-do-ikP"/>
-                            <constraint firstItem="uwN-Fx-shi" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ZbA-Ie-VUv"/>
-                            <constraint firstAttribute="bottom" secondItem="LMY-7X-BLD" secondAttribute="bottom" constant="20" id="a4U-bi-Yb2"/>
-                            <constraint firstItem="uwN-Fx-shi" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="itI-oU-c0Y"/>
-                            <constraint firstItem="uwN-Fx-shi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="myn-yO-NmB"/>
+                            <constraint firstItem="uwN-Fx-shi" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="724-bw-0Vb"/>
+                            <constraint firstAttribute="bottom" secondItem="LMY-7X-BLD" secondAttribute="bottom" constant="50" id="a4U-bi-Yb2"/>
+                            <constraint firstAttribute="bottom" secondItem="uwN-Fx-shi" secondAttribute="bottom" id="aKf-fa-DXy"/>
+                            <constraint firstItem="uwN-Fx-shi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ksi-Di-XIv"/>
                             <constraint firstItem="LMY-7X-BLD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="odb-t1-HPR"/>
+                            <constraint firstItem="uwN-Fx-shi" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="wYn-Kt-CSe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LMY-7X-BLD" secondAttribute="trailing" constant="20" id="xYv-qx-e96"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cq2-mT-B0T">
-                        <barButtonItem key="leftBarButtonItem" title="Track location" id="M32-IV-mKk">
+                        <barButtonItem key="leftBarButtonItem" title="Start tracking" id="M32-IV-mKk">
                             <connections>
                                 <action selector="actionTrackLocation:" destination="BYZ-38-t0r" id="BSz-0M-XZV"/>
                             </connections>
@@ -71,6 +68,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="buttonLocationStartStop" destination="M32-IV-mKk" id="4UX-2u-Ry7"/>
                         <outlet property="mapView" destination="uwN-Fx-shi" id="CLx-DD-ATI"/>
                     </connections>
                 </viewController>

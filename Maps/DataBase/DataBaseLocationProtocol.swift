@@ -10,6 +10,12 @@ import CoreLocation
 
 protocol DataBaseLocationProtocol{
 
-    func readPathLocation() -> [CLLocationCoordinate2D]
-    func addPontToPath(coordinate: CLLocationCoordinate2D)
+    var defaultPathName: String { get }
+
+    func loadPath(name: String) -> [CLLocationCoordinate2D]
+    func savePath(name: String, path: [CLLocationCoordinate2D])
+    func deletePath(name: String)
+
+    func addPoint(path name: String, coordinate: CLLocationCoordinate2D)
+
 }
