@@ -8,29 +8,51 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Maps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="Maps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uwN-Fx-shi" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uwN-Fx-shi" secondAttribute="trailing" id="7s4-FZ-sue"/>
-                            <constraint firstItem="uwN-Fx-shi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fNF-Hz-SZO"/>
-                            <constraint firstItem="uwN-Fx-shi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nbb-H5-Be5"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uwN-Fx-shi" secondAttribute="bottom" id="sqZ-9f-qvp"/>
+                            <constraint firstAttribute="bottom" secondItem="uwN-Fx-shi" secondAttribute="bottom" id="4VM-O1-6kv"/>
+                            <constraint firstItem="uwN-Fx-shi" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ZbA-Ie-VUv"/>
+                            <constraint firstItem="uwN-Fx-shi" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="itI-oU-c0Y"/>
+                            <constraint firstItem="uwN-Fx-shi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="myn-yO-NmB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="cq2-mT-B0T"/>
+                    <navigationItem key="navigationItem" id="cq2-mT-B0T">
+                        <barButtonItem key="leftBarButtonItem" title="Track location" id="M32-IV-mKk">
+                            <connections>
+                                <action selector="actionTrackLocation:" destination="BYZ-38-t0r" id="BSz-0M-XZV"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Norilsk" id="ACG-aJ-snw">
+                                <connections>
+                                    <action selector="actionGoToNorilsk:" destination="BYZ-38-t0r" id="h2o-KO-ojg"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Add marker" id="hTT-Nr-TfA">
+                                <connections>
+                                    <action selector="tapAddMarketButton:" destination="BYZ-38-t0r" id="e6o-m0-lVI"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="mapView" destination="uwN-Fx-shi" id="CLx-DD-ATI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
