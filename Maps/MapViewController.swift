@@ -102,6 +102,7 @@ class MapViewController: UIViewController {
         locationManager.desiredAccuracy = 100.0
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.pausesLocationUpdatesAutomatically = false
+        locationManager.showsBackgroundLocationIndicator = true
         //locationManager.startMonitoringSignificantLocationChanges()
         locationManager.delegate = self;
     }
