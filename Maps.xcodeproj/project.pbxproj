@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		17FDE0A95C8E365B6BF2F33E /* Pods_Maps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8306AE79BA9BA905CF760B39 /* Pods_Maps.framework */; };
+		20410221271C03FA00254AB8 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20410220271C03FA00254AB8 /* BaseRouter.swift */; };
+		20410223271C045400254AB8 /* UIWindow+keyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20410222271C045400254AB8 /* UIWindow+keyWindow.swift */; };
+		20410225271C048500254AB8 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20410224271C048500254AB8 /* BaseCoordinator.swift */; };
+		2041022A271C050B00254AB8 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20410229271C050B00254AB8 /* MenuViewController.swift */; };
+		2041022C271C053C00254AB8 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2041022B271C053C00254AB8 /* UserManager.swift */; };
+		20410230271C05E200254AB8 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2041022F271C05E200254AB8 /* Auth.storyboard */; };
+		20410232271C05F500254AB8 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20410231271C05F500254AB8 /* AuthViewController.swift */; };
+		20410234271C063900254AB8 /* UIStoryboard+Instantiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20410233271C063900254AB8 /* UIStoryboard+Instantiate.swift */; };
+		20410236271C068600254AB8 /* RecoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20410235271C068600254AB8 /* RecoverViewController.swift */; };
 		2063C6DF27148A5700F300A3 /* LocationDataObjectRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2063C6DE27148A5700F300A3 /* LocationDataObjectRealm.swift */; };
 		2063C6E127148B0400F300A3 /* DataBaseLocationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2063C6E027148B0400F300A3 /* DataBaseLocationProtocol.swift */; };
 		2063C6E327148CAD00F300A3 /* RealmDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2063C6E227148CAD00F300A3 /* RealmDataBase.swift */; };
@@ -22,6 +31,15 @@
 
 /* Begin PBXFileReference section */
 		12B74A8A4FD075E854965C8E /* Pods-Maps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maps.debug.xcconfig"; path = "Target Support Files/Pods-Maps/Pods-Maps.debug.xcconfig"; sourceTree = "<group>"; };
+		20410220271C03FA00254AB8 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
+		20410222271C045400254AB8 /* UIWindow+keyWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+keyWindow.swift"; sourceTree = "<group>"; };
+		20410224271C048500254AB8 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		20410229271C050B00254AB8 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		2041022B271C053C00254AB8 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		2041022F271C05E200254AB8 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		20410231271C05F500254AB8 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		20410233271C063900254AB8 /* UIStoryboard+Instantiate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Instantiate.swift"; sourceTree = "<group>"; };
+		20410235271C068600254AB8 /* RecoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverViewController.swift; sourceTree = "<group>"; };
 		2063C6DE27148A5700F300A3 /* LocationDataObjectRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataObjectRealm.swift; sourceTree = "<group>"; };
 		2063C6E027148B0400F300A3 /* DataBaseLocationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseLocationProtocol.swift; sourceTree = "<group>"; };
 		2063C6E227148CAD00F300A3 /* RealmDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataBase.swift; sourceTree = "<group>"; };
@@ -50,6 +68,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2041021F271C03C200254AB8 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				20410220271C03FA00254AB8 /* BaseRouter.swift */,
+				20410222271C045400254AB8 /* UIWindow+keyWindow.swift */,
+				20410224271C048500254AB8 /* BaseCoordinator.swift */,
+				20410233271C063900254AB8 /* UIStoryboard+Instantiate.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		20410226271C04A300254AB8 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				20410228271C04C800254AB8 /* Main */,
+				20410227271C04B700254AB8 /* Auth */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		20410227271C04B700254AB8 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				2041022F271C05E200254AB8 /* Auth.storyboard */,
+				20410231271C05F500254AB8 /* AuthViewController.swift */,
+				20410235271C068600254AB8 /* RecoverViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		20410228271C04C800254AB8 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				20E80A73270DCF9C002ACBBD /* Main.storyboard */,
+				20E80A71270DCF9C002ACBBD /* MapViewController.swift */,
+				20410229271C050B00254AB8 /* MenuViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		2063C6DC27148A1500F300A3 /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,15 +147,16 @@
 		20E80A6C270DCF9C002ACBBD /* Maps */ = {
 			isa = PBXGroup;
 			children = (
+				2041021F271C03C200254AB8 /* Core */,
 				2063C6DC27148A1500F300A3 /* DataBase */,
+				20410226271C04A300254AB8 /* Flows */,
 				20E80A6D270DCF9C002ACBBD /* AppDelegate.swift */,
 				20E80A6F270DCF9C002ACBBD /* SceneDelegate.swift */,
-				20E80A71270DCF9C002ACBBD /* MapViewController.swift */,
-				20E80A73270DCF9C002ACBBD /* Main.storyboard */,
 				20E80A76270DCF9C002ACBBD /* Assets.xcassets */,
 				20E80A78270DCF9C002ACBBD /* LaunchScreen.storyboard */,
 				20E80A7B270DCF9C002ACBBD /* Info.plist */,
 				20943C0D270DE6EC003AA81A /* map-style.json */,
+				2041022B271C053C00254AB8 /* UserManager.swift */,
 			);
 			path = Maps;
 			sourceTree = "<group>";
@@ -182,6 +241,7 @@
 			files = (
 				20E80A7A270DCF9C002ACBBD /* LaunchScreen.storyboard in Resources */,
 				20E80A77270DCF9C002ACBBD /* Assets.xcassets in Resources */,
+				20410230271C05E200254AB8 /* Auth.storyboard in Resources */,
 				20943C0E270DE6EC003AA81A /* map-style.json in Resources */,
 				20E80A75270DCF9C002ACBBD /* Main.storyboard in Resources */,
 			);
@@ -254,10 +314,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				20E80A72270DCF9C002ACBBD /* MapViewController.swift in Sources */,
+				20410234271C063900254AB8 /* UIStoryboard+Instantiate.swift in Sources */,
+				2041022A271C050B00254AB8 /* MenuViewController.swift in Sources */,
+				20410236271C068600254AB8 /* RecoverViewController.swift in Sources */,
+				20410225271C048500254AB8 /* BaseCoordinator.swift in Sources */,
 				20E80A6E270DCF9C002ACBBD /* AppDelegate.swift in Sources */,
+				20410232271C05F500254AB8 /* AuthViewController.swift in Sources */,
+				20410221271C03FA00254AB8 /* BaseRouter.swift in Sources */,
 				2063C6E327148CAD00F300A3 /* RealmDataBase.swift in Sources */,
 				2063C6E127148B0400F300A3 /* DataBaseLocationProtocol.swift in Sources */,
+				20410223271C045400254AB8 /* UIWindow+keyWindow.swift in Sources */,
 				20E80A70270DCF9C002ACBBD /* SceneDelegate.swift in Sources */,
+				2041022C271C053C00254AB8 /* UserManager.swift in Sources */,
 				2063C6DF27148A5700F300A3 /* LocationDataObjectRealm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
