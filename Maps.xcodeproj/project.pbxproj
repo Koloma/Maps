@@ -27,6 +27,9 @@
 		20E80A75270DCF9C002ACBBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20E80A73270DCF9C002ACBBD /* Main.storyboard */; };
 		20E80A77270DCF9C002ACBBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20E80A76270DCF9C002ACBBD /* Assets.xcassets */; };
 		20E80A7A270DCF9C002ACBBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20E80A78270DCF9C002ACBBD /* LaunchScreen.storyboard */; };
+		20ED4628271C0AD7002AF2B0 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED4627271C0AD7002AF2B0 /* AppCoordinator.swift */; };
+		20ED462A271C0B00002AF2B0 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED4629271C0B00002AF2B0 /* MainCoordinator.swift */; };
+		20ED462C271C0B47002AF2B0 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED462B271C0B47002AF2B0 /* AuthCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +55,9 @@
 		20E80A76270DCF9C002ACBBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20E80A79270DCF9C002ACBBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		20E80A7B270DCF9C002ACBBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20ED4627271C0AD7002AF2B0 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		20ED4629271C0B00002AF2B0 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		20ED462B271C0B47002AF2B0 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		54A50B6FC7EF002CADDC026C /* Pods-Maps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maps.release.xcconfig"; path = "Target Support Files/Pods-Maps/Pods-Maps.release.xcconfig"; sourceTree = "<group>"; };
 		8306AE79BA9BA905CF760B39 /* Pods_Maps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Maps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -94,6 +100,7 @@
 				2041022F271C05E200254AB8 /* Auth.storyboard */,
 				20410231271C05F500254AB8 /* AuthViewController.swift */,
 				20410235271C068600254AB8 /* RecoverViewController.swift */,
+				20ED462B271C0B47002AF2B0 /* AuthCoordinator.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -104,6 +111,7 @@
 				20E80A73270DCF9C002ACBBD /* Main.storyboard */,
 				20E80A71270DCF9C002ACBBD /* MapViewController.swift */,
 				20410229271C050B00254AB8 /* MenuViewController.swift */,
+				20ED4629271C0B00002AF2B0 /* MainCoordinator.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -157,6 +165,7 @@
 				20E80A7B270DCF9C002ACBBD /* Info.plist */,
 				20943C0D270DE6EC003AA81A /* map-style.json */,
 				2041022B271C053C00254AB8 /* UserManager.swift */,
+				20ED4627271C0AD7002AF2B0 /* AppCoordinator.swift */,
 			);
 			path = Maps;
 			sourceTree = "<group>";
@@ -317,14 +326,17 @@
 				20410234271C063900254AB8 /* UIStoryboard+Instantiate.swift in Sources */,
 				2041022A271C050B00254AB8 /* MenuViewController.swift in Sources */,
 				20410236271C068600254AB8 /* RecoverViewController.swift in Sources */,
+				20ED462C271C0B47002AF2B0 /* AuthCoordinator.swift in Sources */,
 				20410225271C048500254AB8 /* BaseCoordinator.swift in Sources */,
 				20E80A6E270DCF9C002ACBBD /* AppDelegate.swift in Sources */,
 				20410232271C05F500254AB8 /* AuthViewController.swift in Sources */,
 				20410221271C03FA00254AB8 /* BaseRouter.swift in Sources */,
 				2063C6E327148CAD00F300A3 /* RealmDataBase.swift in Sources */,
+				20ED462A271C0B00002AF2B0 /* MainCoordinator.swift in Sources */,
 				2063C6E127148B0400F300A3 /* DataBaseLocationProtocol.swift in Sources */,
 				20410223271C045400254AB8 /* UIWindow+keyWindow.swift in Sources */,
 				20E80A70270DCF9C002ACBBD /* SceneDelegate.swift in Sources */,
+				20ED4628271C0AD7002AF2B0 /* AppCoordinator.swift in Sources */,
 				2041022C271C053C00254AB8 /* UserManager.swift in Sources */,
 				2063C6DF27148A5700F300A3 /* LocationDataObjectRealm.swift in Sources */,
 			);

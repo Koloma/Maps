@@ -73,9 +73,38 @@
                     <view key="view" contentMode="scaleToFill" id="Kar-7P-LKq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="KUD-SI-VLl">
+                                <rect key="frame" x="32" y="393.5" width="350" height="109"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dOp-Jt-dLc">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ur7-a4-101">
+                                        <rect key="frame" x="0.0" y="78" width="350" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Show password"/>
+                                        <connections>
+                                            <action selector="recoverAction:" destination="oSk-i5-i90" eventType="touchUpInside" id="iCt-gl-WOp"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="8fy-9L-8uo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KUD-SI-VLl" firstAttribute="leading" secondItem="8fy-9L-8uo" secondAttribute="leading" constant="32" id="HoP-Sy-Htc"/>
+                            <constraint firstItem="KUD-SI-VLl" firstAttribute="centerY" secondItem="Kar-7P-LKq" secondAttribute="centerY" id="KBD-gE-8uq"/>
+                            <constraint firstItem="8fy-9L-8uo" firstAttribute="trailing" secondItem="KUD-SI-VLl" secondAttribute="trailing" constant="32" id="MS5-xx-tf3"/>
+                            <constraint firstItem="KUD-SI-VLl" firstAttribute="centerX" secondItem="Kar-7P-LKq" secondAttribute="centerX" id="U2K-ML-w0j"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="usernameTextField" destination="dOp-Jt-dLc" id="6oc-J6-T6B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KL3-BS-I46" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
