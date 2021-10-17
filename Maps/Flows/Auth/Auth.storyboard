@@ -11,7 +11,7 @@
         <!--Auth View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="AuthViewController" customModule="Maps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthViewController" id="Y6W-OH-hqX" customClass="AuthViewController" customModule="Maps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -69,7 +69,7 @@
         <!--Recover View Controller-->
         <scene sceneID="fa3-G6-8SX">
             <objects>
-                <viewController id="oSk-i5-i90" customClass="RecoverViewController" customModule="Maps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecoverViewController" id="oSk-i5-i90" customClass="RecoverViewController" customModule="Maps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kar-7P-LKq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
