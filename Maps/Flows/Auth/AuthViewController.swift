@@ -14,6 +14,7 @@ class AuthViewController: UIViewController {
 
     var onAuthSucces: ((String) -> Void)?
     var onRecoveryAction: (() -> Void)?
+    var onRegistationAction: ((String?) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +28,20 @@ class AuthViewController: UIViewController {
         if UserManager.instance.authorize(username: username, password: password) {
             onAuthSucces?(username)
         }
-
     }
 
     @IBAction func recoverAction(_ sender: Any) {
         onRecoveryAction?()
+    }
+
+    @IBAction func registrationAction(_ sender: Any) {
+        guard let username = usernameTextField.text,
+              !username.replacingOccurrences(of: " ", with: "").isEmpty
+        else {
+            onRegistationAction?(nil)
+            return
+        }
+        onRegistationAction?(username)
     }
 
 }
@@ -51,5 +61,10 @@ final class AuthRouter: BaseRouter {
         show(viewController, style: .push(animated: true))
     }
 
+    func toRegistrationuser (name: String?){
+        let viewController = UIStoryboard(name: "Auth", bundle: nil)
+            .instantiateViewController(RegistrationViewController.self)
+        show(viewController, style: .push(animated: true))
+    }
 }
 
