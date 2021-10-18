@@ -22,7 +22,7 @@ final public class RealDataBase: DataBaseLocationProtocol, DataBaseAuthProtocol 
 
         do {
 
-            guard let userRealm = realm.object(ofType: UserObjectRealm.self, forPrimaryKey: user.login)
+            guard let userRealm = realm.object(ofType: UserObjectRealm.self, forPrimaryKey: user.name)
             else {
                 try realm.write {
                     realm.add(user.toRealm())

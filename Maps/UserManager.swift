@@ -11,17 +11,28 @@ final class UserManager {
 
     static let instance = UserManager()
 
+    private(set) var user: User?
+    private var dataBase: DataBaseAuthProtocol = RealDataBase()
+
     var isAuthorized: Bool {
-        UserDefaults.standard.bool(forKey: "isAuthorized")
+        return user != nil
     }
 
     func authorize(username: String, password: String) -> Bool {
-        guard username == Constants.username,
-              password == Constants.password else {
+        guard let user = dataBase.loadUser(login: username) else {
+            //"Show message user not found"
             return false
         }
-        UserDefaults.standard.set(true, forKey: "isAuthorized")
+        guard username == user.name,
+              password == user.password else {
+            return false
+        }
+        self.user = user
         return true
+    }
+
+    func saveUser(username: String, password: String){
+        dataBase.saveUser(user: User(name: username, password: password, created: NSDate()))
     }
 
     func logout() {

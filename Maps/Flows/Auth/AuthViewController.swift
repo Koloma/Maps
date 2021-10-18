@@ -61,7 +61,7 @@ final class AuthRouter: BaseRouter {
         show(viewController, style: .push(animated: true))
     }
 
-    func toRegistrationuser (name: String?){
+    func toRegistrationuser (userName: String?){
         let viewController = UIStoryboard(name: "Auth", bundle: nil)
             .instantiateViewController(RegistrationViewController.self)
         show(viewController, style: .push(animated: true))

@@ -8,19 +8,19 @@
 import RealmSwift
 
 class UserObjectRealm: Object {
-    @objc dynamic var login = ""
+    @objc dynamic var name = ""
     @objc dynamic var password = ""
     @objc dynamic var created = NSDate()
 
 
     override class func primaryKey() -> String? {
-        return "login"
+        return "name"
     }
 
-    convenience init(login: String, password: String) {
+    convenience init(name: String, password: String) {
         self.init()
 
-        self.login = login
+        self.name = name
         self.password = password
     }
 
@@ -29,7 +29,7 @@ class UserObjectRealm: Object {
 extension UserObjectRealm{
 
     func toUser() -> User{
-        return User(login: self.login, password: self.password, created: self.created)
+        return User(name: self.name, password: self.password, created: self.created)
     }
 
 }
