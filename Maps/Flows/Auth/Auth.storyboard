@@ -132,7 +132,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="H0f-tX-kFd">
-                                <rect key="frame" x="32" y="342.5" width="350" height="211"/>
+                                <rect key="frame" x="32" y="371.5" width="350" height="153"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FJM-cI-NSE">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="34"/>
@@ -151,11 +151,6 @@
                                         <connections>
                                             <action selector="registerAction:" destination="A6y-vD-OYy" eventType="touchUpInside" id="2D6-2Q-5to"/>
                                         </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CU2-eN-0MH">
-                                        <rect key="frame" x="0.0" y="180" width="350" height="31"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
                                     </button>
                                 </subviews>
                             </stackView>

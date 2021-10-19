@@ -27,9 +27,14 @@ class RecoverViewController: UIViewController {
     }
 
     @IBAction func recoverAction(_ sender: Any) {
+
+        guard let userName = usernameTextField.text,
+              let user = UserManager.instance.loadUser(username: userName)
+        else { return }
+
         let alertViewController = UIAlertController(
             title: "Password",
-            message: UserManager.Constants.password,
+            message: user.password,
             preferredStyle: .alert
         )
         alertViewController.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [weak self] _ in
