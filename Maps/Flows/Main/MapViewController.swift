@@ -192,14 +192,14 @@ extension MapViewController: CLLocationManagerDelegate{
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard
-            let location = locations.last
-        else { return }
 
-        if trackLocation{
-            addPointToTrack(at: location.coordinate)
-            let camera = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: defaultZoom)
-            mapView.camera = camera
+        locations.forEach { location in
+            if trackLocation{
+                addPointToTrack(at: location.coordinate)
+                let camera = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: defaultZoom)
+                mapView.camera = camera
+            }
+
         }
     }
 }
