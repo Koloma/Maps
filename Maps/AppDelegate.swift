@@ -35,6 +35,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    //applicationWillResignActive
 
+    func applicationWillResignActive(_ application: UIApplication) {
+        application.keyWindow?.rootViewController?.view.addBlur(style: .extraLight)
+    }
+
+    //applicationDidBecomeActive
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        application.keyWindow?.rootViewController?.view.removeBlur()
+        print(#function)
+    }
 }
 
