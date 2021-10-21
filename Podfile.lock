@@ -1,8 +1,8 @@
 PODS:
-  - GoogleMaps (5.1.0):
-    - GoogleMaps/Maps (= 5.1.0)
-  - GoogleMaps/Base (5.1.0)
-  - GoogleMaps/Maps (5.1.0):
+  - GoogleMaps (5.2.0):
+    - GoogleMaps/Maps (= 5.2.0)
+  - GoogleMaps/Base (5.2.0)
+  - GoogleMaps/Maps (5.2.0):
     - GoogleMaps/Base
   - Realm (10.17.0):
     - Realm/Headers (= 10.17.0)
@@ -32,13 +32,13 @@ SPEC REPOS:
     - RxSwift
 
 SPEC CHECKSUMS:
-  GoogleMaps: 086ae1dab659eaa7339bdb30fc88e2f44e7c597c
+  GoogleMaps: 025272d5876d3b32604e5c080dc25eaf68764693
   Realm: 9533276bd76f66aa2fd0d3ffe700c1f6023dcab6
   RealmSwift: 57f5d59aa29852587aad1e861989e7af139894b5
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
 
-PODFILE CHECKSUM: a127abf24f0b8d9d474d0be5ba5ea6b674a7c116
+PODFILE CHECKSUM: 4384a64a64fe00eaac13713b6c5f7c9f842d6085
 
 COCOAPODS: 1.11.2

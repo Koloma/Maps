@@ -6,18 +6,33 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class AuthViewController: UIViewController {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-
+    @IBOutlet weak var loginButton: UIButton!
+    
     var onAuthSucces: ((String) -> Void)?
     var onRecoveryAction: (() -> Void)?
     var onRegistationAction: ((String?) -> Void)?
 
+    let disposeBag = DisposeBag()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        Observable.combineLatest(usernameTextField.rx.text.orEmpty, passwordTextField.rx.text.orEmpty)
+            .map { (userName, password) in
+                !userName.isEmpty && !password.isEmpty
+            }
+            .subscribe{[weak self] isEnabled in
+                self?.loginButton.isEnabled = isEnabled
+            }
+            .disposed(by: disposeBag)
+
     }
 
     @IBAction func loginAction(_ sender: Any) {
