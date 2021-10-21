@@ -26,11 +26,12 @@ class AuthViewController: UIViewController {
 
         Observable.combineLatest(usernameTextField.rx.text.orEmpty, passwordTextField.rx.text.orEmpty)
             .map { (userName, password) in
-                !userName.isEmpty && !password.isEmpty
+                !userName.isEmpty && password.count >= 6
             }
-            .subscribe{[weak self] isEnabled in
-                self?.loginButton.isEnabled = isEnabled
-            }
+            .bind(to: loginButton.rx.isEnabled)
+//            .subscribe{[weak self] isEnabled in
+//                self?.loginButton.isEnabled = isEnabled
+//            }
             .disposed(by: disposeBag)
 
     }
