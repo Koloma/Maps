@@ -168,6 +168,7 @@
                     <connections>
                         <outlet property="loginTextField" destination="FJM-cI-NSE" id="0gS-83-zs1"/>
                         <outlet property="passwordTextField" destination="l87-1n-H1O" id="A6R-34-UMp"/>
+                        <outlet property="registrationButton" destination="EBk-6Q-Udz" id="eAl-CU-dPV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JfU-QG-4hg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

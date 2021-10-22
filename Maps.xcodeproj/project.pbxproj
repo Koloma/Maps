@@ -23,6 +23,7 @@
 		20943C0E270DE6EC003AA81A /* map-style.json in Resources */ = {isa = PBXBuildFile; fileRef = 20943C0D270DE6EC003AA81A /* map-style.json */; };
 		20999FF2271D814B008CEE3C /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20999FF1271D814B008CEE3C /* RegistrationViewController.swift */; };
 		20999FF427215CC8008CEE3C /* UIViev+blure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20999FF327215CC8008CEE3C /* UIViev+blure.swift */; };
+		20999FF62722B971008CEE3C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20999FF52722B971008CEE3C /* LocationManager.swift */; };
 		20E80A6E270DCF9C002ACBBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E80A6D270DCF9C002ACBBD /* AppDelegate.swift */; };
 		20E80A70270DCF9C002ACBBD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E80A6F270DCF9C002ACBBD /* SceneDelegate.swift */; };
 		20E80A72270DCF9C002ACBBD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E80A71270DCF9C002ACBBD /* MapViewController.swift */; };
@@ -54,6 +55,7 @@
 		20943C0D270DE6EC003AA81A /* map-style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "map-style.json"; sourceTree = SOURCE_ROOT; };
 		20999FF1271D814B008CEE3C /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		20999FF327215CC8008CEE3C /* UIViev+blure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViev+blure.swift"; sourceTree = "<group>"; };
+		20999FF52722B971008CEE3C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		20E80A6A270DCF9C002ACBBD /* Maps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20E80A6D270DCF9C002ACBBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20E80A6F270DCF9C002ACBBD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				20943C0D270DE6EC003AA81A /* map-style.json */,
 				2041022B271C053C00254AB8 /* UserManager.swift */,
 				20ED4627271C0AD7002AF2B0 /* AppCoordinator.swift */,
+				20999FF52722B971008CEE3C /* LocationManager.swift */,
 			);
 			path = Maps;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				20ED462C271C0B47002AF2B0 /* AuthCoordinator.swift in Sources */,
 				20410225271C048500254AB8 /* BaseCoordinator.swift in Sources */,
 				20999FF427215CC8008CEE3C /* UIViev+blure.swift in Sources */,
+				20999FF62722B971008CEE3C /* LocationManager.swift in Sources */,
 				20E80A6E270DCF9C002ACBBD /* AppDelegate.swift in Sources */,
 				20ED462E271C435E002AF2B0 /* UserObjectRealm.swift in Sources */,
 				20ED4632271C4465002AF2B0 /* User.swift in Sources */,

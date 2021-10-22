@@ -6,11 +6,16 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class RegistrationViewController: UIViewController {
 
+    let disposeBag = DisposeBag()
+
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var registrationButton: UIButton!
 
     var userName: String? {
         didSet {
@@ -21,11 +26,22 @@ class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureLoginBindings()
         updateView()
+
     }
     
     private func updateView() {
         loginTextField?.text = userName
+    }
+
+    func configureLoginBindings() {
+        Observable.combineLatest(loginTextField.rx.text.orEmpty, passwordTextField.rx.text.orEmpty)
+            .map { (userName, password) in
+                !userName.isEmpty && password.count >= 6
+            }
+            .bind(to: registrationButton.rx.isEnabled)
+            .disposed(by: disposeBag)
     }
 
     @IBAction func registerAction(_ sender: Any) {

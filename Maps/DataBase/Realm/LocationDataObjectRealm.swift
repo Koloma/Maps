@@ -20,7 +20,7 @@ class LocationRealm: Object {
         self.longitude = coordinate.longitude
     }
 
-    public var coordinate: CLLocationCoordinate2D {
+    var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(
             latitude: latitude,
             longitude: longitude)

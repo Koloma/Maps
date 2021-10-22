@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 import CoreLocation
 
-final public class RealDataBase: DataBaseLocationProtocol, DataBaseAuthProtocol {
+final class RealDataBase: DataBaseLocationProtocol, DataBaseAuthProtocol {
 
     func loadUser(login: String) -> User? {
         guard let userRealm = realm.object(ofType: UserObjectRealm.self, forPrimaryKey: login)

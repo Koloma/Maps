@@ -24,16 +24,7 @@ class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        Observable.combineLatest(usernameTextField.rx.text.orEmpty, passwordTextField.rx.text.orEmpty)
-            .map { (userName, password) in
-                !userName.isEmpty && password.count >= 6
-            }
-            .bind(to: loginButton.rx.isEnabled)
-//            .subscribe{[weak self] isEnabled in
-//                self?.loginButton.isEnabled = isEnabled
-//            }
-            .disposed(by: disposeBag)
-
+        configureLoginBindings()
     }
 
     @IBAction func loginAction(_ sender: Any) {
@@ -59,7 +50,18 @@ class AuthViewController: UIViewController {
         }
         onRegistationAction?(username)
     }
-
+    
+    func configureLoginBindings() {
+        Observable.combineLatest(usernameTextField.rx.text.orEmpty, passwordTextField.rx.text.orEmpty)
+            .map { (userName, password) in
+                !userName.isEmpty && password.count >= 6
+            }
+            .bind(to: loginButton.rx.isEnabled)
+//            .subscribe{[weak self] isEnabled in
+//                self?.loginButton.isEnabled = isEnabled
+//            }
+            .disposed(by: disposeBag)
+    }
 }
 
 final class AuthRouter: BaseRouter {
