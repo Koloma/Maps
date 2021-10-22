@@ -8,7 +8,7 @@
 import RealmSwift
 import CoreLocation
 
-class Location: Object {
+class LocationRealm: Object {
     @objc dynamic var latitude = 0.0
     @objc dynamic var longitude = 0.0
     @objc dynamic var created = NSDate()
@@ -30,5 +30,5 @@ class Location: Object {
 class PathObject: Object {
     @objc dynamic var name = ""
     @objc dynamic var created = NSDate()
-    let path = List<Location>()
+    let path = List<LocationRealm>()
 }

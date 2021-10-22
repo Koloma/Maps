@@ -9,7 +9,50 @@ import Foundation
 import RealmSwift
 import CoreLocation
 
-final public class RealDataBase: DataBaseLocationProtocol {
+final public class RealDataBase: DataBaseLocationProtocol, DataBaseAuthProtocol {
+
+    func loadUser(login: String) -> User? {
+        guard let userRealm = realm.object(ofType: UserObjectRealm.self, forPrimaryKey: login)
+        else { return nil}
+
+        return userRealm.toUser()
+    }
+
+    func saveUser(user: User) {
+
+        do {
+
+            guard let userRealm = realm.object(ofType: UserObjectRealm.self, forPrimaryKey: user.name)
+            else {
+                try realm.write {
+                    realm.add(user.toRealm())
+                }
+                return
+            }
+            userRealm.password = user.password
+            try realm.write {
+                realm.add(userRealm, update: .modified)
+            }
+
+        } catch let error as NSError {
+            print("Could not SaveUser to Realm database: ", error.localizedDescription)
+        }
+
+    }
+
+    func deleteUser(login: String) {
+        do {
+
+            let objects = realm.objects(UserObjectRealm.self)
+
+            try realm.write {
+                realm.delete(objects)
+            }
+        } catch let error as NSError {
+            print("Could not delete object from Realm database: ", error.localizedDescription)
+        }
+    }
+
 
     let defaultPathName: String = "default"
 
@@ -39,7 +82,7 @@ final public class RealDataBase: DataBaseLocationProtocol {
     func deletePath(name: String) {
         do {
 
-            let objects = realm.objects(Location.self)
+            let objects = realm.objects(LocationRealm.self)
 
             try realm.write {
                 realm.delete(objects)
@@ -57,7 +100,7 @@ final public class RealDataBase: DataBaseLocationProtocol {
     }
 
     func loadPath(name: String) -> [CLLocationCoordinate2D] {
-        let locationPath = realm.objects(Location.self)
+        let locationPath = realm.objects(LocationRealm.self)
         var arr:[CLLocationCoordinate2D] = []
         for loc in locationPath {
             arr.append(loc.coordinate)
@@ -67,7 +110,7 @@ final public class RealDataBase: DataBaseLocationProtocol {
 
     func addPoint(path name: String,  coordinate: CLLocationCoordinate2D) {
 
-        let realmLocation = Location(coordinate: coordinate)
+        let realmLocation = LocationRealm(coordinate: coordinate)
         write {
             realm.add(realmLocation)
         }
