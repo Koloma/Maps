@@ -16,10 +16,17 @@ final class LocationManager: NSObject {
 
     static let instance = LocationManager()
 
-    let authorithationStatus = BehaviorRelay<CLAuthorizationStatus>(value: .notDetermined)
-    let location = PublishRelay<CLLocationCoordinate2D>()
+    let authorithationStatus: Observable<CLAuthorizationStatus>
+    private let _authorithationStatus = BehaviorRelay<CLAuthorizationStatus>(value: .notDetermined)
+
+    let location: Observable<CLLocationCoordinate2D>
+    private let _location = PublishRelay<CLLocationCoordinate2D>()
 
     private override init() {
+
+        self.authorithationStatus = _authorithationStatus.asObservable()
+        self.location = _location.asObservable()
+
         super.init()
         configureLocationManager()
     }
@@ -51,13 +58,13 @@ final class LocationManager: NSObject {
 
 extension LocationManager: CLLocationManagerDelegate {
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        authorithationStatus.accept(manager.authorizationStatus)
+        _authorithationStatus.accept(manager.authorizationStatus)
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
         locations.forEach{
-            location.accept($0.coordinate)
+            _location.accept($0.coordinate)
         }
     }
 
