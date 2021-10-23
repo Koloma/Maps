@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 
 final class LocationManager: NSObject {
+
     private let locationManager = CLLocationManager()
 
     static let instance = LocationManager()
@@ -42,7 +43,7 @@ final class LocationManager: NSObject {
     }
 
     func requestAuthorithation() {
-
+        locationManager.requestAlwaysAuthorization()
     }
 
 
@@ -55,8 +56,8 @@ extension LocationManager: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
-        locations.forEach { location in
-            print(location)
+        locations.forEach{
+            location.accept($0.coordinate)
         }
     }
 

@@ -8,6 +8,7 @@ target 'Maps' do
   # Pods for Maps
   pod 'GoogleMaps'
   pod 'RealmSwift', :inhibit_warnings => true
-  pod 'RxSwift', '~> 6.2' :inhibit_warnings => true
-  pod 'RxCocoa', '~> 6.2' :inhibit_warnings => true
+  pod 'RxSwift', '~> 6.2', :inhibit_warnings => true
+  pod 'RxCocoa', '~> 6.2', :inhibit_warnings => true
+
 end
