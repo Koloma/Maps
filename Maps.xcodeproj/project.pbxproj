@@ -36,6 +36,7 @@
 		20ED462E271C435E002AF2B0 /* UserObjectRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED462D271C435E002AF2B0 /* UserObjectRealm.swift */; };
 		20ED4630271C442D002AF2B0 /* DataBaseAuthProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED462F271C442D002AF2B0 /* DataBaseAuthProtocol.swift */; };
 		20ED4632271C4465002AF2B0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED4631271C4465002AF2B0 /* User.swift */; };
+		20F1E8AD27255E0D006CB83A /* OSLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F1E8AC27255E0D006CB83A /* OSLogger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		20ED462D271C435E002AF2B0 /* UserObjectRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserObjectRealm.swift; sourceTree = "<group>"; };
 		20ED462F271C442D002AF2B0 /* DataBaseAuthProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseAuthProtocol.swift; sourceTree = "<group>"; };
 		20ED4631271C4465002AF2B0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		20F1E8AC27255E0D006CB83A /* OSLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLogger.swift; sourceTree = "<group>"; };
 		54A50B6FC7EF002CADDC026C /* Pods-Maps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maps.release.xcconfig"; path = "Target Support Files/Pods-Maps/Pods-Maps.release.xcconfig"; sourceTree = "<group>"; };
 		8306AE79BA9BA905CF760B39 /* Pods_Maps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Maps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -94,6 +96,7 @@
 				20410224271C048500254AB8 /* BaseCoordinator.swift */,
 				20410233271C063900254AB8 /* UIStoryboard+Instantiate.swift */,
 				20999FF327215CC8008CEE3C /* UIViev+blure.swift */,
+				20F1E8AC27255E0D006CB83A /* OSLogger.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				2063C6E127148B0400F300A3 /* DataBaseLocationProtocol.swift in Sources */,
 				20410223271C045400254AB8 /* UIWindow+keyWindow.swift in Sources */,
 				20E80A70270DCF9C002ACBBD /* SceneDelegate.swift in Sources */,
+				20F1E8AD27255E0D006CB83A /* OSLogger.swift in Sources */,
 				20ED4628271C0AD7002AF2B0 /* AppCoordinator.swift in Sources */,
 				20999FF2271D814B008CEE3C /* RegistrationViewController.swift in Sources */,
 				2041022C271C053C00254AB8 /* UserManager.swift in Sources */,
