@@ -12,12 +12,18 @@ import RealmSwift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    let notifications = Notifications()
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         GMSServices.provideAPIKey("AIzaSyA97ysHp32tXw3ZZyfdQkJL1ub2kvbDGY8")
 #if DEBUG
-            print(Realm.Configuration.defaultConfiguration.fileURL ?? "Realm eror")
+            print(Realm.Configuration.defaultConfiguration.fileURL ?? "Realm error")
 #endif
+
+        notifications.requestAutorization()
+        notifications.notificationCenter.delegate = notifications
+        
         return true
     }
 
