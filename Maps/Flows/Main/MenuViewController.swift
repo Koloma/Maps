@@ -10,8 +10,11 @@ class MenuViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
 
+    
     var onShowMap: (() -> Void)?
     var onLogout: (() -> Void)?
+    var onTakePictures: (() -> Void)?
+
     var userName: String? {
         didSet {
             updateView()
@@ -26,6 +29,10 @@ class MenuViewController: UIViewController {
 
     private func updateView() {
         titleLabel?.text = userName
+    }
+
+    @IBAction func takePicturesAction(_ sender: Any) {
+        onTakePictures?()
     }
 
     @IBAction func showMapAction(_ sender: Any) {

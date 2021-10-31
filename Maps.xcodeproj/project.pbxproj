@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		17FDE0A95C8E365B6BF2F33E /* Pods_Maps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8306AE79BA9BA905CF760B39 /* Pods_Maps.framework */; };
+		20075A77272E53FB000D97C4 /* EditPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20075A76272E53FB000D97C4 /* EditPhotoViewController.swift */; };
 		20410221271C03FA00254AB8 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20410220271C03FA00254AB8 /* BaseRouter.swift */; };
 		20410223271C045400254AB8 /* UIWindow+keyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20410222271C045400254AB8 /* UIWindow+keyWindow.swift */; };
 		20410225271C048500254AB8 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20410224271C048500254AB8 /* BaseCoordinator.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		12B74A8A4FD075E854965C8E /* Pods-Maps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maps.debug.xcconfig"; path = "Target Support Files/Pods-Maps/Pods-Maps.debug.xcconfig"; sourceTree = "<group>"; };
+		20075A76272E53FB000D97C4 /* EditPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPhotoViewController.swift; sourceTree = "<group>"; };
 		20410220271C03FA00254AB8 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
 		20410222271C045400254AB8 /* UIWindow+keyWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+keyWindow.swift"; sourceTree = "<group>"; };
 		20410224271C048500254AB8 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				20E80A71270DCF9C002ACBBD /* MapViewController.swift */,
 				20410229271C050B00254AB8 /* MenuViewController.swift */,
 				20ED4629271C0B00002AF2B0 /* MainCoordinator.swift */,
+				20075A76272E53FB000D97C4 /* EditPhotoViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				20999FF427215CC8008CEE3C /* UIViev+blure.swift in Sources */,
 				20999FF62722B971008CEE3C /* LocationManager.swift in Sources */,
 				20E80A6E270DCF9C002ACBBD /* AppDelegate.swift in Sources */,
+				20075A77272E53FB000D97C4 /* EditPhotoViewController.swift in Sources */,
 				20ED462E271C435E002AF2B0 /* UserObjectRealm.swift in Sources */,
 				20ED4632271C4465002AF2B0 /* User.swift in Sources */,
 				20410232271C05F500254AB8 /* AuthViewController.swift in Sources */,
