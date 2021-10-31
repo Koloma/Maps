@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 final class MainCoordinator: BaseCoordinator {
 
@@ -58,10 +59,17 @@ final class MainCoordinator: BaseCoordinator {
         let viewController = UIStoryboard(name: "Main", bundle: nil)
             .instantiateViewController(EditPhotoViewController.self)
         viewController.image = image
+        viewController.onSave = { [weak viewController] in
+            viewController?.dismiss(animated: true, completion: nil)
+        }
         navigationController?.present(viewController, animated: true, completion: nil)
     }
 
     func showPhotoPicker() {
+
+        guard UIImagePickerController.isSourceTypeAvailable(.camera)
+        else { return }
+
         let viewController = UIImagePickerController()
         viewController.sourceType = .camera
         viewController.allowsEditing = true
@@ -80,7 +88,9 @@ extension MainCoordinator: UIImagePickerControllerDelegate, UINavigationControll
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 
         if let image = getImageFrom(info: info) {
-
+            picker.dismiss(animated: true) { [weak self] in
+                self?.showSelfi(image: image)
+            }
         }
 
     }
