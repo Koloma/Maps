@@ -48,12 +48,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cq2-mT-B0T">
-                        <barButtonItem key="leftBarButtonItem" title="Start tracking" id="M32-IV-mKk">
-                            <connections>
-                                <action selector="actionTrackLocation:" destination="BYZ-38-t0r" id="BSz-0M-XZV"/>
-                            </connections>
-                        </barButtonItem>
                         <rightBarButtonItems>
+                            <barButtonItem title="Start tracking" id="M32-IV-mKk">
+                                <connections>
+                                    <action selector="actionTrackLocation:" destination="BYZ-38-t0r" id="BSz-0M-XZV"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="Norilsk" id="ACG-aJ-snw">
                                 <connections>
                                     <action selector="actionGoToNorilsk:" destination="BYZ-38-t0r" id="h2o-KO-ojg"/>
