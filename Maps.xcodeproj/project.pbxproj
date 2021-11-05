@@ -19,6 +19,7 @@
 		20410234271C063900254AB8 /* UIStoryboard+Instantiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20410233271C063900254AB8 /* UIStoryboard+Instantiate.swift */; };
 		20410236271C068600254AB8 /* RecoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20410235271C068600254AB8 /* RecoverViewController.swift */; };
 		20418C132734E80700C46114 /* FilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20418C122734E80700C46114 /* FilesManager.swift */; };
+		20418C1527350D8500C46114 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20418C1427350D8500C46114 /* UIImage+Resize.swift */; };
 		2063C6DF27148A5700F300A3 /* LocationDataObjectRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2063C6DE27148A5700F300A3 /* LocationDataObjectRealm.swift */; };
 		2063C6E127148B0400F300A3 /* DataBaseLocationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2063C6E027148B0400F300A3 /* DataBaseLocationProtocol.swift */; };
 		2063C6E327148CAD00F300A3 /* RealmDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2063C6E227148CAD00F300A3 /* RealmDataBase.swift */; };
@@ -55,6 +56,7 @@
 		20410233271C063900254AB8 /* UIStoryboard+Instantiate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Instantiate.swift"; sourceTree = "<group>"; };
 		20410235271C068600254AB8 /* RecoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverViewController.swift; sourceTree = "<group>"; };
 		20418C122734E80700C46114 /* FilesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesManager.swift; sourceTree = "<group>"; };
+		20418C1427350D8500C46114 /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		2063C6DE27148A5700F300A3 /* LocationDataObjectRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataObjectRealm.swift; sourceTree = "<group>"; };
 		2063C6E027148B0400F300A3 /* DataBaseLocationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseLocationProtocol.swift; sourceTree = "<group>"; };
 		2063C6E227148CAD00F300A3 /* RealmDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataBase.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				20F1E8AC27255E0D006CB83A /* OSLogger.swift */,
 				208C406D272B01BA00EF8BD9 /* NotificationsManager.swift */,
 				20418C122734E80700C46114 /* FilesManager.swift */,
+				20418C1427350D8500C46114 /* UIImage+Resize.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				20ED462A271C0B00002AF2B0 /* MainCoordinator.swift in Sources */,
 				2063C6E127148B0400F300A3 /* DataBaseLocationProtocol.swift in Sources */,
 				20410223271C045400254AB8 /* UIWindow+keyWindow.swift in Sources */,
+				20418C1527350D8500C46114 /* UIImage+Resize.swift in Sources */,
 				20E80A70270DCF9C002ACBBD /* SceneDelegate.swift in Sources */,
 				20F1E8AD27255E0D006CB83A /* OSLogger.swift in Sources */,
 				20ED4628271C0AD7002AF2B0 /* AppCoordinator.swift in Sources */,

@@ -61,7 +61,9 @@ final class MainCoordinator: BaseCoordinator {
         viewController.image = image
         viewController.onSave = { [weak viewController] in
             if let image = viewController?.image {
-                FilesManager.saveImage(imageName: FilesManager.userImageName, image: image)
+                let targetSize = CGSize(width: 50, height: 50)
+                let scaledImage = image.scalePreservingAspectRatio(targetSize: targetSize)
+                FilesManager.saveImage(imageName: FilesManager.userImageName, image: scaledImage)
             }
             viewController?.dismiss(animated: true, completion: nil)
         }
