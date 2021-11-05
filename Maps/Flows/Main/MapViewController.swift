@@ -21,6 +21,10 @@ class MapViewController: UIViewController {
 
     private var trackLocation = false
 
+    private let myMarkerDefaultImage = FilesManager.defaultUserMarkerImage
+    private var myMarkerImage: UIImage?
+    private var myMarker: GMSMarker?
+
     private var route: GMSPolyline?
     private var path: GMSMutablePath?
     private var currentLocation: CLLocationCoordinate2D?
@@ -135,9 +139,11 @@ class MapViewController: UIViewController {
 
     private func updateTrack(location: CLLocationCoordinate2D) {
         if trackLocation {
+            setMyMarker(at: location)
             addPointToTrack(at: location)
             let camera = GMSCameraPosition.camera(withTarget: location, zoom: defaultZoom)
             mapView.camera = camera
+
         }
     }
 
@@ -150,6 +156,8 @@ class MapViewController: UIViewController {
 
         setCustomMapStyle()
 
+        myMarkerImage = FilesManager.loadImageFromDiskWith(fileName: FilesManager.userImageName)
+
         mapView.delegate = self
     }
 
@@ -161,12 +169,31 @@ class MapViewController: UIViewController {
         mapView.mapStyle = mapStyle
     }
 
-    private func addMarker(at coordinate: CLLocationCoordinate2D, title: String = "", snippet: String = ""){
+    private func addMarker(at coordinate: CLLocationCoordinate2D, title: String = "", snippet: String = "") {
         let marker = GMSMarker.init(position: coordinate)
         marker.icon = GMSMarker.markerImage(with: .clear)
         marker.title = title
         marker.snippet = snippet
         marker.map = mapView
+    }
+
+    private func setMyMarker(at coordinate: CLLocationCoordinate2D) {
+        let imageView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        if let myMarker = myMarker {
+            myMarker.position = coordinate
+        } else {
+            let marker = GMSMarker.init(position: coordinate)
+            if let image = myMarkerImage {
+                imageView.image = image
+            }
+            else {
+                imageView.image = myMarkerDefaultImage
+            }
+            imageView.rounded()
+            marker.iconView = imageView
+            marker.map = mapView
+            self.myMarker = marker
+        }
     }
 
     private func startNewTrack() {
