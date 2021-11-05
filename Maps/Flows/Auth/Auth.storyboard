@@ -71,6 +71,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loginButton" destination="4Ji-ai-9qt" id="YAB-6S-ypi"/>
                         <outlet property="passwordTextField" destination="EVh-x5-ivg" id="BdN-yd-QvK"/>
                         <outlet property="usernameTextField" destination="gFF-k1-J4k" id="wqM-Em-7f7"/>
                     </connections>
@@ -167,6 +168,7 @@
                     <connections>
                         <outlet property="loginTextField" destination="FJM-cI-NSE" id="0gS-83-zs1"/>
                         <outlet property="passwordTextField" destination="l87-1n-H1O" id="A6R-34-UMp"/>
+                        <outlet property="registrationButton" destination="EBk-6Q-Udz" id="eAl-CU-dPV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JfU-QG-4hg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

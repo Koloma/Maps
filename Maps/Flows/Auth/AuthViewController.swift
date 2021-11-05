@@ -6,18 +6,25 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class AuthViewController: UIViewController {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-
+    @IBOutlet weak var loginButton: UIButton!
+    
     var onAuthSucces: ((String) -> Void)?
     var onRecoveryAction: (() -> Void)?
     var onRegistationAction: ((String?) -> Void)?
 
+    let disposeBag = DisposeBag()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        configureLoginBindings()
     }
 
     @IBAction func loginAction(_ sender: Any) {
@@ -43,7 +50,18 @@ class AuthViewController: UIViewController {
         }
         onRegistationAction?(username)
     }
-
+    
+    func configureLoginBindings() {
+        Observable.combineLatest(usernameTextField.rx.text.orEmpty, passwordTextField.rx.text.orEmpty)
+            .map { (userName, password) in
+                !userName.isEmpty && password.count >= 6
+            }
+            .bind(to: loginButton.rx.isEnabled)
+//            .subscribe{[weak self] isEnabled in
+//                self?.loginButton.isEnabled = isEnabled
+//            }
+            .disposed(by: disposeBag)
+    }
 }
 
 final class AuthRouter: BaseRouter {
