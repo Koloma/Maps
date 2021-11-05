@@ -31,7 +31,7 @@ class EditPhotoViewController: UIViewController {
     }
 
     @IBAction func saveAction(_ sender: Any) {
-        onSave?()
+         onSave?()
     }
 
 

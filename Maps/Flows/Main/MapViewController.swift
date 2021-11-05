@@ -21,6 +21,8 @@ class MapViewController: UIViewController {
 
     private var trackLocation = false
 
+    private let myMarkerImage = FilesManager.defaultUserMarkerImage
+
     private var route: GMSPolyline?
     private var path: GMSMutablePath?
     private var currentLocation: CLLocationCoordinate2D?

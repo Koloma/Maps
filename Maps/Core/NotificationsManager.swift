@@ -8,7 +8,7 @@
 import UIKit
 import UserNotifications
 
-class Notifications: NSObject, UNUserNotificationCenterDelegate {
+class NotificationsManager: NSObject, UNUserNotificationCenterDelegate {
 
     let notificationIdentifire = "Maps Notification"
     let notifaicationType = "Local Notification"

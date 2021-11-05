@@ -60,6 +60,9 @@ final class MainCoordinator: BaseCoordinator {
             .instantiateViewController(EditPhotoViewController.self)
         viewController.image = image
         viewController.onSave = { [weak viewController] in
+            if let image = viewController?.image {
+                FilesManager.saveImage(imageName: FilesManager.userImageName, image: image)
+            }
             viewController?.dismiss(animated: true, completion: nil)
         }
         navigationController?.present(viewController, animated: true, completion: nil)
@@ -67,11 +70,16 @@ final class MainCoordinator: BaseCoordinator {
 
     func showPhotoPicker() {
 
-        guard UIImagePickerController.isSourceTypeAvailable(.camera)
-        else { return }
+        var sourceType: UIImagePickerController.SourceType
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            sourceType = .camera
+        }
+        else {
+            sourceType = .photoLibrary
+        }
 
         let viewController = UIImagePickerController()
-        viewController.sourceType = .camera
+        viewController.sourceType = sourceType
         viewController.allowsEditing = true
         viewController.delegate = self
         navigationController?.present(viewController, animated: true, completion: nil)
