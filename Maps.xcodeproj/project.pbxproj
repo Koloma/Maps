@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		17FDE0A95C8E365B6BF2F33E /* Pods_Maps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8306AE79BA9BA905CF760B39 /* Pods_Maps.framework */; };
 		20075A77272E53FB000D97C4 /* EditPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20075A76272E53FB000D97C4 /* EditPhotoViewController.swift */; };
+		2007D527273588F20033ABA0 /* UIImageView+rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2007D526273588F20033ABA0 /* UIImageView+rounded.swift */; };
 		20410221271C03FA00254AB8 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20410220271C03FA00254AB8 /* BaseRouter.swift */; };
 		20410223271C045400254AB8 /* UIWindow+keyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20410222271C045400254AB8 /* UIWindow+keyWindow.swift */; };
 		20410225271C048500254AB8 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20410224271C048500254AB8 /* BaseCoordinator.swift */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		12B74A8A4FD075E854965C8E /* Pods-Maps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maps.debug.xcconfig"; path = "Target Support Files/Pods-Maps/Pods-Maps.debug.xcconfig"; sourceTree = "<group>"; };
 		20075A76272E53FB000D97C4 /* EditPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPhotoViewController.swift; sourceTree = "<group>"; };
+		2007D526273588F20033ABA0 /* UIImageView+rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+rounded.swift"; sourceTree = "<group>"; };
 		20410220271C03FA00254AB8 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
 		20410222271C045400254AB8 /* UIWindow+keyWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+keyWindow.swift"; sourceTree = "<group>"; };
 		20410224271C048500254AB8 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				208C406D272B01BA00EF8BD9 /* NotificationsManager.swift */,
 				20418C122734E80700C46114 /* FilesManager.swift */,
 				20418C1427350D8500C46114 /* UIImage+Resize.swift */,
+				2007D526273588F20033ABA0 /* UIImageView+rounded.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				20ED4628271C0AD7002AF2B0 /* AppCoordinator.swift in Sources */,
 				20999FF2271D814B008CEE3C /* RegistrationViewController.swift in Sources */,
 				2041022C271C053C00254AB8 /* UserManager.swift in Sources */,
+				2007D527273588F20033ABA0 /* UIImageView+rounded.swift in Sources */,
 				2063C6DF27148A5700F300A3 /* LocationDataObjectRealm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

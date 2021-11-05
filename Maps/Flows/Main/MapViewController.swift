@@ -178,19 +178,21 @@ class MapViewController: UIViewController {
     }
 
     private func setMyMarker(at coordinate: CLLocationCoordinate2D) {
-
+        let imageView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         if let myMarker = myMarker {
             myMarker.position = coordinate
         } else {
-        let marker = GMSMarker.init(position: coordinate)
+            let marker = GMSMarker.init(position: coordinate)
             if let image = myMarkerImage {
-                marker.icon = image
+                imageView.image = image
             }
             else {
-                marker.icon = myMarkerDefaultImage
+                imageView.image = myMarkerDefaultImage
             }
-        marker.map = mapView
-        self.myMarker = marker
+            imageView.rounded()
+            marker.iconView = imageView
+            marker.map = mapView
+            self.myMarker = marker
         }
     }
 
